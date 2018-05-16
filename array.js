@@ -99,5 +99,35 @@ function urlfily(str){
   var replaced = str.replace(/ /g,"%20"); 
   console.log(replaced)
 }
-urlfily("tauhida parveen")
-urlfily("www.thinkful.com /tauh ida parv een")
+// urlfily("tauhida parveen")
+// urlfily("www.thinkful.com /tauh ida parv een")
+
+ function filterArr(arr){
+let test = arr.forEach(x => {
+ 
+  if(x <= 5 ){
+    console.log(x)
+   console.log("trying to delete")
+  }
+  else{
+    console.log("yes")
+  }
+});
+
+}
+// filterArr([1,2,3,4,5,6,7,8,8])
+
+
+function sumArry(arr){
+
+let max = 0;
+var sum = 0;
+for(var i=0; i< arr.length;i++){
+  sum += arr[i]
+  if(sum > max ){
+    max = sum;
+  }
+}
+ return max;
+}
+console.log(sumArry([4,6,-3,5,-2,1]))
