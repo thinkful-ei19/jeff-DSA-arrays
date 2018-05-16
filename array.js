@@ -131,3 +131,11 @@ for(var i=0; i< arr.length;i++){
  return max;
 }
 console.log(sumArry([4,6,-3,5,-2,1]))
+
+function mergeArr(arr1,arr2){
+  let arr3= arr1.concat(arr2)
+  console.log("hello there ",arr3)
+  return arr3.sort(function(a, b){return a - b});
+}
+
+console.log("wow",mergeArr([2,3,12,53,122,23],[1,2,3,54,23,9]))
