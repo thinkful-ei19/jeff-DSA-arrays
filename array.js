@@ -9,10 +9,14 @@ class Array{
   }
   //
   push(value) {
-    this._resize(this.length + 1);
+    if (this.length >= this._capacity) {
+        this._resize((this.length + 1) * Array.SIZE_RATIO);
+    }
+
     memory.set(this.ptr + this.length, value);
     this.length++;
 }
+
 _resize(size) {
   const oldPtr = this.ptr;
   this.ptr = memory.allocate(size);
@@ -21,6 +25,7 @@ _resize(size) {
   }
   memory.copy(this.ptr, oldPtr, this.length);
   memory.free(oldPtr);
+  this._capacity = size;
 }
 
 get(index) {
@@ -69,18 +74,29 @@ function main(){
 
   //add an item to the array
   jeffArr.push(3);
- // Array { length: 1, _capacity: 0, ptr: 0 }
+ // Array { length: 1, _capacity: 3, ptr: 0 }
+ // This length is one because it just has one array,
+ //This was the capacity set to 3 
+
  jeffArr.push(5);
  jeffArr.push(15);
  jeffArr.push(19);
  jeffArr.push(45);
  jeffArr.push(10);
-//Array { length: 6, _capacity: 0, ptr: 15 }
+// Array { length: 6, _capacity: 12, ptr: 3 }
+// On the length we set it to our 6 because of the six number that listed in our code 
+//the capacity grew to 12
 jeffArr.pop();
 jeffArr.pop();
 jeffArr.pop();
-//Array { length: 3, _capacity: 0, ptr: 15 }
-
+//Array { length: 3, _capacity: 12, ptr: 3 }
+jeffArr.push("tauhida");
   console.log(jeffArr);
 }
-main()
+// main()
+
+function urlfily(str){
+  var replaced = str.replace(/ /g,"%20"); 
+  console.log(replaced)
+}
+urlfily("hello how are")
