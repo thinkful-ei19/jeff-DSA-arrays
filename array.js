@@ -99,4 +99,5 @@ function urlfily(str){
   var replaced = str.replace(/ /g,"%20"); 
   console.log(replaced)
 }
-urlfily("hello how are")
+urlfily("tauhida parveen")
+urlfily("www.thinkful.com /tauh ida parv een")
